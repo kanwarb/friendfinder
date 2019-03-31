@@ -8,20 +8,24 @@ module.exports = function(app){
 
   app.post("/api/friends",function(req, res){
       newFriend = req.body
-      res.json(newFriend);
       var lowestDiff =0;
       var previousLowestDiff =55;
       var response;
       for(i=0;i < friendsData.length;i++){
           for(j=0; j <newFriend.scores.length;j++){
-            lowestDiff =abs(parseInt(friendsData[i].scores[j] - parseInt(newFriend.scores[j]))); 
+            console.log(parseInt(friendsData[i].scores[j]), parseInt(newFriend.scores[j]));
+            lowestDiff += Math.abs(parseInt(friendsData[i].scores[j]) - parseInt(newFriend.scores[j])); 
           }
           if( lowestDiff < previousLowestDiff) {
               previousLowestDiff =lowestDiff;
+              lowestDiff=0;
+              console.log(previousLowestDiff);
+              console.log(friendsData[i].name)
               response = friendsData[i];
           }
      }
-     return response;
+     friendsData.push(newFriend);
+     return res.json(response);
   })
 
 }
