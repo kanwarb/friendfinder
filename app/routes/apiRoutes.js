@@ -33,10 +33,6 @@ module.exports = function(app){
      }
      // Push the Survey to the friends.js array
      friendsData.push(newFriend);
-     fs.writeFile('./app/data/friends.js', res.json(friendsData) +"\n module.exports = friendsArr;", (err) => {  
-      if (err) throw err;
-      console.log('New Survey added to file.');
-  });
      // return the response with the closest matching friend.
      return res.json(response);
   })
