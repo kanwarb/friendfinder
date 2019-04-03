@@ -1,4 +1,5 @@
 var friendsData = require("../data/friends");
+var fs = require("fs");
 
 module.exports = function(app){
 
@@ -6,11 +7,17 @@ module.exports = function(app){
       res.json(friendsData);
   });
 
+
+
+  // Post data to the friends.js
+
+
   app.post("/api/friends",function(req, res){
       newFriend = req.body
       var lowestDiff =0;
       var previousLowestDiff =55;
       var response;
+      // Iterate through data to determine the closest match for the friend.
       for(i=0;i < friendsData.length;i++){
           for(j=0; j <newFriend.scores.length;j++){
             console.log(parseInt(friendsData[i].scores[j]), parseInt(newFriend.scores[j]));
@@ -19,12 +26,18 @@ module.exports = function(app){
           if( lowestDiff < previousLowestDiff) {
               previousLowestDiff =lowestDiff;
               lowestDiff=0;
-              console.log(previousLowestDiff);
-              console.log(friendsData[i].name)
+              // console.log(previousLowestDiff);
+              // console.log(friendsData[i].name)
               response = friendsData[i];
           }
      }
+     // Push the Survey to the friends.js array
      friendsData.push(newFriend);
+     fs.writeFile('./app/data/friends.js', res.json(friendsData) +"\n module.exports = friendsArr;", (err) => {  
+      if (err) throw err;
+      console.log('New Survey added to file.');
+  });
+     // return the response with the closest matching friend.
      return res.json(response);
   })
 
