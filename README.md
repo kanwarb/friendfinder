@@ -27,7 +27,7 @@
         -  CSS 3
         -  Jquery 3.2
          
-## Examples of commands in action
+## Static View of Website 
 
 ### Home page 
 ![Survey Home Page ](images/friendfinderHome.png)
