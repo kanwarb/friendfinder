@@ -1,10 +1,9 @@
-## Friend Finder is allows you to find the best match for a friend based on the survey answers provided.
+## Friend Finder allows you to find the best match for a friend based on the answers to the survey.
 
-### Take a survey to determine the closest match 
 
 ### Web Access to take the survey.
 
-[Click here to take the Survey ](https://friendfinder-ka.herokuapp.com/)
+[Take the Survey ](https://friendfinder-ka.herokuapp.com/)
 
 ### How to use the App
 
@@ -31,8 +30,13 @@
 ## Examples of commands in action
 
 ### Home page 
-![Survey Home Page ](images/friendfinderHome.PNG)
+![Survey Home Page ](images/friendfinderHome.png)
 
 ### Survey
+![Survey Question Page](images/friendFinderSurvey.png)
 
-![Survey Question Page](images/friendFinderSurvey.PNG)
+### API Friend List
+![Link to API Friend List](images/friendlistapi.png)
+
+### Github Repo
+![Github Repo](images/githubRepo.png)
